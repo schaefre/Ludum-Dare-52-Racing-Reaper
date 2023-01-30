@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tractor_engine.mp3-9816ee526432d9718a282d702ba272b2.mp3str"
+
+[deps]
+
+source_file="res://sounds/tractor_engine.mp3"
+dest_files=[ "res://.import/tractor_engine.mp3-9816ee526432d9718a282d702ba272b2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

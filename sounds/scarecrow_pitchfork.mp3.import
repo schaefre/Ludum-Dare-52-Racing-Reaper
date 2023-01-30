@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/scarecrow_pitchfork.mp3-09b3500a4d2b444a3f04b697a8ffdbe4.mp3str"
+
+[deps]
+
+source_file="res://sounds/scarecrow_pitchfork.mp3"
+dest_files=[ "res://.import/scarecrow_pitchfork.mp3-09b3500a4d2b444a3f04b697a8ffdbe4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

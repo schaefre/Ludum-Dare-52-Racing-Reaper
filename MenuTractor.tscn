@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://MenuTractor.gd" type="Script" id=5]
+[ext_resource path="res://frames/tractor/menu_tractor_3.png" type="Texture" id=6]
+[ext_resource path="res://frames/tractor/menu_tractor_1.png" type="Texture" id=7]
+[ext_resource path="res://frames/tractor/menu_tractor_0.png" type="Texture" id=8]
+[ext_resource path="res://frames/tractor/menu_tractor_2.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 184, 132 )
+
+[node name="MenuTractor" type="Area2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 208, 440 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 200, 444 )
+scale = Vector2( 18.4, 13.2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 200, 444 )
+shape = SubResource( 2 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

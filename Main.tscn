@@ -1,0 +1,96 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://music/background.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://Chicken.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sounds/chicken.mp3" type="AudioStream" id=5]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scarecrow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Field.tscn" type="PackedScene" id=8]
+[ext_resource path="res://frames/field/field_background.png" type="Texture" id=9]
+[ext_resource path="res://Hay.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Fuel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Pitchfork.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Phone.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sounds/tractor_engine.mp3" type="AudioStream" id=15]
+[ext_resource path="res://sounds/game_over.mp3" type="AudioStream" id=17]
+[ext_resource path="res://sounds/hay.mp3" type="AudioStream" id=18]
+[ext_resource path="res://sounds/scarecrow_pitchfork.mp3" type="AudioStream" id=19]
+[ext_resource path="res://sounds/phone.mp3" type="AudioStream" id=20]
+[ext_resource path="res://sounds/fuel.mp3" type="AudioStream" id=21]
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+chicken_scene = ExtResource( 4 )
+scarecrow_scene = ExtResource( 7 )
+hay_scene = ExtResource( 10 )
+fuel_scene = ExtResource( 11 )
+pitch_fork_scene = ExtResource( 12 )
+phone_scene = ExtResource( 14 )
+
+[node name="MenuBackground" type="Sprite" parent="."]
+position = Vector2( 200, 285 )
+texture = ExtResource( 9 )
+
+[node name="Field" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="Stats" parent="." instance=ExtResource( 13 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -20.0
+autoplay = true
+
+[node name="ChickenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+pitch_scale = 1.1
+
+[node name="TractorEngineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
+[node name="PitchforkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+pitch_scale = 0.5
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+
+[node name="HaySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="ScarecrowSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="PhoneSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="FuelSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+
+[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="return_to_menu" from="Stats" to="." method="_on_Stats_return_to_menu"]
+[connection signal="die" from="Player" to="." method="_on_Player_die"]
+[connection signal="full_health" from="Player" to="." method="_on_Player_full_health"]
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+[connection signal="move_down" from="Player" to="." method="_on_Player_move_down"]
+[connection signal="move_up" from="Player" to="." method="_on_Player_move_up"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]

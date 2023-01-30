@@ -1,0 +1,187 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Stats.gd" type="Script" id=1]
+[ext_resource path="res://frames/reaper/reaper_chicken.png" type="Texture" id=2]
+[ext_resource path="res://frames/tractor/tractor_broken.png" type="Texture" id=3]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://frames/hat/hat.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="InputEventAction" id=4]
+action = "start_game"
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 12
+font_data = ExtResource( 4 )
+
+[node name="Stats" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="EmptyTractor" type="Sprite" parent="."]
+position = Vector2( 896, 32 )
+texture = ExtResource( 3 )
+
+[node name="ReaperChicken" type="Sprite" parent="."]
+position = Vector2( 697, 304 )
+texture = ExtResource( 2 )
+
+[node name="Hat" type="Sprite" parent="."]
+position = Vector2( 56, 56 )
+texture = ExtResource( 5 )
+
+[node name="Restart" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -85.0
+margin_right = 110.0
+margin_bottom = -45.0
+custom_fonts/font = SubResource( 1 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 5 )
+text = "Keep on reaping"
+
+[node name="Titel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -185.0
+margin_top = 20.0
+margin_right = 185.0
+margin_bottom = 78.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 2 )
+text = "Game Over"
+
+[node name="TotaRank" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 160.0
+margin_right = 264.0
+margin_bottom = 190.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 8 )
+text = "Rank: Dead Bones"
+
+[node name="TotalScore" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 192.0
+margin_right = 280.0
+margin_bottom = 222.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 3 )
+text = "Soul Score: 0"
+
+[node name="GameTime" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 224.0
+margin_right = 293.0
+margin_bottom = 254.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 3 )
+text = "Reaping Time: 0s"
+
+[node name="HarvestedMobs" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 256.0
+margin_right = 284.0
+margin_bottom = 418.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 3 )
+text = "Poor Chickens: 0
+Scarecrows: 0
+Hay Rolls: 0
+Pitch Forks: 0
+Fuel Canisters: 0
+"
+
+[node name="DeathBringer" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 418.0
+margin_right = 450.0
+margin_bottom = 448.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 3 )
+text = "Your Demise: Reaper Chicken"
+
+[node name="AllRanksLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 318.0
+margin_top = 456.0
+margin_right = 445.0
+margin_bottom = 481.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 7 )
+text = "Soul Scores"
+
+[node name="AllRanks2" type="Label" parent="."]
+margin_left = 826.0
+margin_top = 480.0
+margin_right = 880.0
+margin_bottom = 675.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 6 )
+text = "10000:
+8000:
+6000:
+4000:
+2000:
+0:"
+align = 2
+
+[node name="AllRanks" type="Label" parent="."]
+margin_left = 884.0
+margin_top = 480.0
+margin_right = 1106.0
+margin_bottom = 675.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 6 )
+text = "Reaper of the Month
+Tractor Lord
+Chick Magnet
+Hay Bouncer
+Scared Crow
+Dead  Bones"
+
+[connection signal="pressed" from="Restart" to="." method="_on_Restart_pressed"]

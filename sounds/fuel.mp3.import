@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fuel.mp3-52d746d5cf871773d7580408ce0145a4.mp3str"
+
+[deps]
+
+source_file="res://sounds/fuel.mp3"
+dest_files=[ "res://.import/fuel.mp3-52d746d5cf871773d7580408ce0145a4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hay.mp3-616681c9d36dfedecf787eaf90403d80.mp3str"
+
+[deps]
+
+source_file="res://sounds/hay.mp3"
+dest_files=[ "res://.import/hay.mp3-616681c9d36dfedecf787eaf90403d80.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
